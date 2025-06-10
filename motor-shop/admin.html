@@ -311,16 +311,145 @@
                     </div>
                 </div>
 
-                <!-- Tab Sản phẩm - Ví dụ, bạn có thể thêm nội dung tương ứng -->
+                <!-- Tab Sản phẩm -->
                 <div class="tab-pane fade" id="products-tab-pane" role="tabpanel" aria-labelledby="products-tab" tabindex="0">
-                    <h2 class="mb-4">Quản lý Sản phẩm</h2>
-                    <p>Nội dung quản lý sản phẩm sẽ được hiển thị ở đây.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>Quản lý sản phẩm</h2>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                            <i class="fas fa-plus"></i> Thêm sản phẩm mới
+                        </button>
+                    </div>
+
+                    <!-- Bảng sản phẩm -->
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Loại xe</th>
+                                    <th>Giá</th>
+                                    <th>Trạng thái</th>
+                                    <th class="text-end">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Dữ liệu sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Modal thêm/sửa sản phẩm -->
+                    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addProductModalLabel">Thêm sản phẩm mới</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="productForm">
+                                        <input type="hidden" id="productId">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="productName" class="form-label">Tên sản phẩm</label>
+                                                <input type="text" class="form-control" id="productName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="productType" class="form-label">Loại sản phẩm</label>
+                                                <select class="form-select" id="productType" required>
+                                                    <option value="">Chọn loại sản phẩm</option>
+                                                    <option value="Sport">Sport</option>
+                                                    <option value="Naked">Naked</option>
+                                                    <option value="Adventure">Adventure</option>
+                                                    <option value="Touring">Touring</option>
+                                                    <option value="Cruiser">Cruiser</option>
+                                                    <option value="Accessories">Phụ kiện</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="productPrice" class="form-label">Giá</label>
+                                                <input type="number" class="form-control" id="productPrice" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="productStatus" class="form-label">Trạng thái</label>
+                                                <select class="form-select" id="productStatus" required>
+                                                    <option value="active">Còn hàng</option>
+                                                    <option value="inactive">Hết hàng</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="productDescription" class="form-label">Mô tả</label>
+                                            <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="productImage" class="form-label">Hình ảnh</label>
+                                            <input type="file" class="form-control" id="productImage" accept="image/*">
+                                            <div id="imagePreview" class="mt-2 d-none">
+                                                <img src="" alt="Preview" class="img-thumbnail" style="max-height: 200px;">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                    <button type="button" class="btn btn-primary" id="saveProductBtn">Lưu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal xác nhận xóa -->
+                    <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Xác nhận xóa</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Bạn có chắc chắn muốn xóa sản phẩm này?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Tab Khách hàng - Ví dụ -->
+                <!-- Tab Khách hàng -->
                 <div class="tab-pane fade" id="customers-tab-pane" role="tabpanel" aria-labelledby="customers-tab" tabindex="0">
                     <h2 class="mb-4">Quản lý Khách hàng</h2>
-                    <p>Nội dung quản lý khách hàng sẽ được hiển thị ở đây.</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title mb-0">Danh sách khách hàng</h5>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Họ và tên</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Trạng thái thanh toán</th>
+                                            <th>Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="customersTableBody">
+                                        <!-- Dữ liệu khách hàng sẽ được JS chèn vào đây -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Tab Khuyến mãi - Ví dụ -->

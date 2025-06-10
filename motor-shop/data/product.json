@@ -510,8 +510,166 @@
             "Images/Harley Road Glide 2.jpg",
             "Images/Harley Road Glide 3.jpg"
             ]
-        }
-
-
-
+        },
+        {
+        "id": 22,
+        "name": "Nón bảo hiểm Fullface",
+        "price": 2500000,
+        "image": "Images/Nón bảo hiểm full face.jpg",
+        "description": "Nón bảo hiểm Fullface cao cấp giúp bảo vệ toàn diện phần đầu, đạt chuẩn an toàn khi di chuyển tốc độ cao.",
+        "specs": {
+            "Loại": "Fullface",
+            "Chất liệu": "ABS cao cấp",
+            "Thương hiệu": "Givi",
+            "Trọng lượng": "1.5 kg",
+            "Kích thước": "M, L, XL",
+            "Bảo hành": "12 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/Nón bảo hiểm full face.jpg"
+            
+        ]
+        },
+        {
+        "id": 23,
+        "name": "Găng tay bảo hộ da Motowolf",
+        "price": 790000,
+        "image": "Images/găng tay bảo hộ.jpg",
+        "description": "Găng tay da bảo hộ Motowolf dành cho biker chuyên nghiệp, thiết kế thời trang, chống trượt và bảo vệ khớp ngón.",
+        "specs": {
+            "Loại": "Găng tay đi phượt",
+            "Chất liệu": "Da bò và vải lưới",
+            "Thương hiệu": "Motowolf",
+            "Kích thước": "M, L, XL",
+            "Tính năng": "Thoáng khí, chống va đập",
+            "Bảo hành": "6 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/găng tay bảo hộ.jpg"
+            
+        ]
+        },
+       
+    {
+        "id": 24,
+        "name": "Kính chắn gió xe máy Touring",
+        "price": 680000,
+        "image": "Images/kính chắn gió moto.jpg",
+        "description": "Kính chắn gió chuyên dụng cho xe Touring giúp chắn bụi, gió và tăng tính khí động học khi di chuyển tốc độ cao.",
+        "specs": {
+            "Loại": "Kính chắn gió",
+            "Thương hiệu": "Universal",
+            "Chất liệu": "Nhựa polycarbonate",
+            "Màu sắc": "Trong suốt / Khói xám",
+            "Kích thước": "30x35 cm",
+            "Bảo hành": "6 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/kính chắn gió moto.jpg"
+            
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Áo giáp bảo hộ",
+        "price": 1850000,
+        "image": "Images/Áo giáp Scoyco JK37.jpg",
+        "description": "Áo giáp Scoyco JK37 bảo vệ toàn diện với lớp lót chống mài mòn và các giáp bảo vệ vai, khuủu và lưng, thích hợp cho phượt dài ngày.",
+        "specs": {
+            "Loại": "Áo giáp moto",
+            "Thương hiệu": "Scoyco",
+            "Chất liệu": "Polyester + EVA bảo vệ",
+            "Tính năng": "Chống gió, thoáng khí, bảo vệ va chạm",
+            "Size": "M, L, XL, XXL",
+            "Bảo hành": "12 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/bo-quan-ao-giap-moto-a3.jpg"
+         
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Kẹp điện thoại gắn xe máy Motowolf",
+        "price": 350000,
+        "image": "mages/gia-do-dien-thoai-motowolf-mh1-kep-ghi-dong-mau-do.jpg",
+        "description": "Kẹp điện thoại chắc chắn gắn ghi đông, chống rung, xoay 360 độ, phù hợp mọi dòng xe máy.",
+        "specs": {
+            "Loại": "Giá đỡ điện thoại",
+            "Thương hiệu": "Motowolf",
+            "Chất liệu": "Nhôm CNC + ABS",
+            "Xoay": "360 độ",
+            "Tương thích": "Điện thoại 4.7 – 6.8 inch",
+            "Bảo hành": "6 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/gia-do-dien-thoai-motowolf-mh1-kep-ghi-dong-mau-do.jpg"
+           
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Thùng xe Givi B32N",
+        "price": 2150000,
+        "image": "Images/thung-sau-xe-may-givi-b27n-1.jpg",
+        "description": "Thùng xe Givi B32N dung tích 32L, lắp đặt phía sau xe, phù hợp đi phượt hoặc chở đồ tiện lợi.",
+        "specs": {
+            "Loại": "Thùng xe sau",
+            "Thương hiệu": "Givi",
+            "Dung tích": "32 lít",
+            "Chất liệu": "Nhựa tổng hợp ABS",
+            "Tải trọng": "Tối đa 10kg",
+            "Bảo hành": "12 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/thung-sau-xe-may-givi-b27n-1.jpg"
+          
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Ống xả độ Akrapovic Slip-On",
+        "price": 3800000,
+        "image": "Images/ống xã.jpg",
+        "description": "Ống xả Akrapovic Slip-On giúp cải thiện hiệu suất, âm thanh thể thao, lắp đặt dễ dàng cho nhiều dòng xe.",
+        "specs": {
+            "Loại": "Ống xả độ",
+            "Thương hiệu": "Akrapovic",
+            "Chất liệu": "Thép không gỉ & Carbon",
+            "Âm thanh": "Thể thao",
+            "Tương thích": "Nakedbike, Sportbike",
+            "Bảo hành": "12 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/ống xã.jpg"
+          
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Khóa đĩa báo động chống trộm",
+        "price": 320000,
+        "image": "Images/khóa chống trộm.jpg",
+        "description": "Khóa đĩa tích hợp còi báo động âm thanh lớn khi có tác động, bảo vệ xe máy khỏi trộm cắp hiệu quả.",
+        "specs": {
+            "Loại": "Khóa đĩa",
+            "Thương hiệu": "Fornix",
+            "Chất liệu": "Hợp kim kẽng",
+            "Còi báo động": "110 dB",
+            "Pin": "CR2 x 6 viên",
+            "Bảo hành": "3 tháng"
+        },
+        "loaiXe": "Phụ kiện",
+        "images": [
+            "Images/khóa chống trộm.jpg"
+            
+        ]
+    }
 ]

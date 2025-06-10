@@ -779,3 +779,287 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+// Hàm để hiển thị danh sách sản phẩm
+function loadProducts() {
+    const productsTableBody = document.getElementById('productsTableBody');
+    if (!productsTableBody) return;
+
+    productsTableBody.innerHTML = '';
+    products = JSON.parse(localStorage.getItem('products')) || [];
+
+    if (products.length === 0) {
+        productsTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có sản phẩm nào.</td></tr>';
+        return;
+    }
+
+    products.forEach(product => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${product.id}</td>
+            <td>
+                <img src="${product.image}" 
+                     alt="${product.name}" 
+                     class="img-thumbnail" 
+                     style="width: 100px; height: 60px; object-fit: cover;">
+                ${product.name}
+            </td>
+            <td>${product.category}</td>
+            <td>${product.price.toLocaleString('vi-VN')} VNĐ</td>
+            <td>${product.stock}</td>
+            <td>
+                <button class="btn btn-sm btn-primary edit-product" data-id="${product.id}">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-danger delete-product" data-id="${product.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+        productsTableBody.appendChild(row);
+    });
+
+    attachProductTableEvents();
+}
+
+// Hàm lưu sản phẩm
+function saveProduct() {
+    const productForm = document.getElementById('productForm');
+    const formData = new FormData(productForm);
+    
+    const product = {
+        id: currentProductId || Date.now().toString(),
+        name: formData.get('name'),
+        category: formData.get('category'),
+        price: parseFloat(formData.get('price')),
+        stock: parseInt(formData.get('stock')),
+        image: formData.get('image'),
+        description: formData.get('description')
+    };
+
+    if (currentProductId) {
+        // Cập nhật sản phẩm hiện có
+        const index = products.findIndex(p => p.id === currentProductId);
+        if (index !== -1) {
+            products[index] = product;
+        }
+    } else {
+        // Thêm sản phẩm mới
+        products.push(product);
+    }
+
+    localStorage.setItem('products', JSON.stringify(products));
+    loadProducts();
+    resetProductForm();
+    $('#productModal').modal('hide');
+}
+
+// Hàm thêm sản phẩm vào storage
+function addProductToStorage(product) {
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    products.push(product);
+    localStorage.setItem('products', JSON.stringify(products));
+}
+
+// Hàm reset form sản phẩm
+function resetProductForm() {
+    const productForm = document.getElementById('productForm');
+    productForm.reset();
+    currentProductId = null;
+    document.getElementById('productModalTitle').textContent = 'Thêm sản phẩm mới';
+}
+
+// Hàm khởi tạo sản phẩm mẫu
+function initializeSampleProducts() {
+    const sampleProducts = [
+        {
+            id: '1',
+            name: 'Kawasaki Ninja ZX-10R',
+            category: 'Thể thao',
+            price: 750000000,
+            stock: 5,
+            image: 'Images/Ninja ZX-10R ABS 2.jpg',
+            description: 'Mô tô thể thao phân khối lớn'
+        },
+        {
+            id: '2',
+            name: 'Honda CBR1000RR-R',
+            category: 'Thể thao',
+            price: 800000000,
+            stock: 3,
+            image: 'Images/Honda CBR1000RR-R.jpg',
+            description: 'Mô tô thể thao phân khối lớn'
+        }
+    ];
+
+    localStorage.setItem('products', JSON.stringify(sampleProducts));
+    loadProducts();
+}
+
+// Thêm event listeners cho quản lý sản phẩm
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded');
+    
+    // Khởi tạo sản phẩm mẫu
+    initializeSampleProducts();
+    
+    // Load sản phẩm
+    loadProducts();
+
+    // Xử lý sự kiện khi chọn hình ảnh
+    const productImageInput = document.getElementById('productImage');
+    if (productImageInput) {
+        productImageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById('imagePreview');
+                    if (imagePreview) {
+                        imagePreview.classList.remove('d-none');
+                        const img = imagePreview.querySelector('img');
+                        if (img) {
+                            img.src = e.target.result;
+                        }
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    // Xử lý sự kiện khi đóng modal
+    const addProductModal = document.getElementById('addProductModal');
+    if (addProductModal) {
+        addProductModal.addEventListener('hidden.bs.modal', function() {
+            resetProductForm();
+        });
+    }
+
+    // Xử lý sự kiện khi submit form
+    const productForm = document.getElementById('productForm');
+    if (productForm) {
+        productForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveProduct();
+        });
+    }
+
+    // Xử lý sự kiện khi xóa sản phẩm
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    if (confirmDeleteBtn) {
+        confirmDeleteBtn.addEventListener('click', deleteProduct);
+    }
+});
+
+// Hàm để khởi tạo sản phẩm mẫu
+function initializeSampleProducts() {
+    console.log('Initializing sample products...');
+    // Kiểm tra xem đã có sản phẩm trong localStorage chưa
+    if (products.length === 0) {
+        console.log('No products found, adding sample products...');
+        products = [
+            {
+                id: 1,
+                name: "Honda CBR1000RR",
+                type: "Sport",
+                price: 850000000,
+                status: "active",
+                description: "Mô tô thể thao cao cấp với động cơ 1000cc",
+                image: "Images/honda-cbr1000rr.jpg"
+            },
+            {
+                id: 2,
+                name: "Yamaha R1",
+                type: "Sport",
+                price: 820000000,
+                status: "active",
+                description: "Mô tô thể thao đẳng cấp với công nghệ MotoGP",
+                image: "Images/yamaha-r1.jpg"
+            },
+            {
+                id: 3,
+                name: "Ducati Panigale V4",
+                type: "Sport",
+                price: 1250000000,
+                status: "inactive",
+                description: "Mô tô thể thao Ý với động cơ V4",
+                image: "Images/ducati-panigale-v4.jpg"
+            },
+            {
+                id: 4,
+                name: "BMW S1000 RR",
+                type: "Sport",
+                price: 950000000,
+                status: "active",
+                description: "Mô tô thể thao Đức với công nghệ tiên tiến",
+                image: "Images/bmw-s1000rr.jpg"
+            },
+            {
+                id: 5,
+                name: "BMW F 900 XR",
+                type: "Adventure",
+                price: 550000000,
+                status: "active",
+                description: "Mô tô adventure touring đa năng",
+                image: "Images/bmw-f900xr.jpg"
+            }
+        ];
+        localStorage.setItem('products', JSON.stringify(products));
+        console.log('Sample products added successfully');
+    } else {
+        console.log('Products already exist in localStorage');
+    }
+}
+
+// Hàm xóa sản phẩm
+function deleteProduct(productId) {
+    if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+        products = products.filter(product => product.id !== productId);
+        localStorage.setItem('products', JSON.stringify(products));
+        loadProducts();
+        showAlert('Xóa sản phẩm thành công!', 'success');
+    }
+}
+
+// Hàm sửa sản phẩm
+function editProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        currentProductId = productId;
+        const form = document.getElementById('productForm');
+        
+        // Điền thông tin sản phẩm vào form
+        form.querySelector('[name="name"]').value = product.name;
+        form.querySelector('[name="category"]').value = product.category;
+        form.querySelector('[name="price"]').value = product.price;
+        form.querySelector('[name="stock"]').value = product.stock;
+        form.querySelector('[name="description"]').value = product.description;
+        
+        // Cập nhật tiêu đề modal
+        document.getElementById('productModalTitle').textContent = 'Sửa sản phẩm';
+        
+        // Hiển thị modal
+        $('#productModal').modal('show');
+    }
+}
+
+// Hàm gắn sự kiện cho các nút trong bảng sản phẩm
+function attachProductTableEvents() {
+    // Sự kiện cho nút sửa
+    document.querySelectorAll('.edit-product').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.dataset.id;
+            editProduct(productId);
+        });
+    });
+
+    // Sự kiện cho nút xóa
+    document.querySelectorAll('.delete-product').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.dataset.id;
+            deleteProduct(productId);
+        });
+    });
+}
