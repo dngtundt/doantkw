@@ -5,6 +5,7 @@
         "price": 850000000,
         "image": "images/Honda CBR1000RR.jpg",
         "description": "Honda CBR1000RR là mẫu xe thể thao hàng đầu của Honda với động cơ 1000cc mạnh mẽ, thiết kế thể thao đậm chất đua xe. Xe trang bị đầy đủ các công nghệ hiện đại nhất như hệ thống chống bó cứng phanh ABS, kiểm soát lực kéo, và nhiều chế độ lái khác nhau.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "Honda",
             "Dòng xe": "Thể thao",
@@ -29,6 +30,7 @@
         "price": 1000000000,
         "image": "images/Yamaha R1.jpg",
         "description": "Yamaha R1 là mẫu xe thể thao hàng đầu của Honda với động cơ 998cc mạnh mẽ, thiết kế thể thao đậm chất đua xe. Xe trang bị đầy đủ các công nghệ hiện đại nhất như hệ thống chống bó cứng phanh ABS, kiểm soát lực kéo, và nhiều chế độ lái khác nhau.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "Yamaha",
             "Dòng xe": "Thể thao",
@@ -53,6 +55,7 @@
         "price": 1250000000,
         "image": "images/Ducati Panigale V4.jpg",
         "description": "Ducati Panigale V4 là mẫu xe thể thao hàng đầu của Honda với động cơ 1103cc mạnh mẽ, thiết kế thể thao đậm chất đua xe. Xe trang bị đầy đủ các công nghệ hiện đại nhất như hệ thống chống bó cứng phanh ABS, kiểm soát lực kéo, và nhiều chế độ lái khác nhau.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "Honda",
             "Dòng xe": "Thể thao",
@@ -77,6 +80,7 @@
         "price": 950000000,
         "image": "Images/BWM S1000 R.jpg ",
         "description": "BWM S10000 R là mâu naked bike hiệu suất cao của BWM Motorrad với thiết kể thể thao động cơ mạnh mẽ",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BWM",
             "Dòng xe": "Naked bike",
@@ -104,6 +108,7 @@
             "price": 550000000,
             "image": "Images/BMW F 900 XR 1.jpg",
             "description": "BMW F 900 XR là mẫu sport touring của BMW với thiết kế linh hoạt, phù hợp cho những chuyến đi đường dài với động cơ mạnh mẽ.",
+            "status": "active",
             "specs": {
                 "Hãng sản xuất": "BMW",
                 "Dòng xe": "Sport Touring",
@@ -128,6 +133,7 @@
         "price": 790000000,
         "image": "Images/BMW R 1250 GS Adventure 1.jpg",
         "description": "BMW R 1250 GS Adventure là mẫu xe adventure hàng đầu của BMW, nổi bật với khả năng chinh phục mọi địa hình và công nghệ tiên tiến.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Adventure",
@@ -155,6 +161,7 @@
         "price": 1099000000,
         "image": "Images/BMW R 1250 RT.jpg",
         "description": "BMW R 1250 RT là mẫu touring cao cấp giúp bạn di chuyển đường dài thoải mái với công nghệ hiện đại và khả năng vận hành mạnh mẽ.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Touring",
@@ -179,6 +186,7 @@
         "price": 649000000,
         "image": "Images/BMW S 1000 R.jpg",
         "description": "BMW S 1000 R là mẫu naked bike mạnh mẽ với thiết kế thể thao, hiệu suất cao và cảm giác lái linh hoạt.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Roadster",
@@ -203,6 +211,7 @@
         "price": 459000000,
         "image": "Images/BMW F 900 R.jpg",
         "description": "BMW F 900 R là chiếc roadster năng động, mang lại trải nghiệm lái trực quan, hiện đại và đầy cảm xúc.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Roadster",
@@ -228,6 +237,7 @@
         "price": 1139000000,
         "image": "Images/BMW R 18 B.jpg",
         "description": "BMW R 18 B kết hợp sức mạnh thuần khiết và phong cách Bagger cổ điển, lý tưởng cho những hành trình xa và đầy cảm xúc.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Cruiser",
@@ -253,6 +263,7 @@
         "price": 1339000000,
         "image": "Images/BMW R 18 Transcontinental.jpg",
         "description": "BMW R 18 Transcontinental là mẫu touring biểu tượng với thiết kế sang trọng, mang lại sự thoải mái tối đa trên các cung đường dài.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Touring",
@@ -277,6 +288,7 @@
         "price": 829000000,
         "image": "Images/BMW R 18.jpg",
         "description": "BMW R 18 là mẫu cruiser mang đậm phong cách hoài cổ, sở hữu động cơ Big Boxer mạnh mẽ và thiết kế tinh tế.",
+        "status": "active",
         "specs": {
             "Hãng sản xuất": "BMW",
             "Dòng xe": "Cruiser",
@@ -302,6 +314,7 @@
             "price": 729000000,
             "image": "Images/Ninja ZX-10R ABS 1.jpg",
             "description": "Ninja ZX-10R ABS 2025 là siêu mô tô thể thao hàng đầu của Kawasaki, nổi bật với công nghệ tiên tiến từ giải đua WSBK.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Kawasaki",
             "Dòng xe": "Sport bike",
@@ -326,6 +339,7 @@
             "price": 319000000,
             "image": "Images/W800 ABS 1.jpg",
             "description": "Kawasaki W800 ABS 2025 là mẫu classic bike với thiết kế hoài cổ và động cơ êm ái, lý tưởng cho người yêu phong cách cổ điển.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Kawasaki",
             "Dòng xe": "Classic",
@@ -350,6 +364,7 @@
             "price": 399000000,
             "image": "Images/Ninja ZX-4R 1.jpg",
             "description": "Ninja ZX-4R 2024 là mẫu sportbike phân khối nhỏ mạnh mẽ, nổi bật trong phân khúc với động cơ 4 xi-lanh và thiết kế sắc nét.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Kawasaki",
             "Dòng xe": "Sport bike",
@@ -374,6 +389,7 @@
             "price": 210000000,
             "image": "Images/Interceptor.jpg",
             "description": "Royal Enfield Interceptor mang phong cách cổ điển pha trộn hiện đại, động cơ đôi xi-lanh song song mạnh mẽ.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Royal Enfield",
             "Dòng xe": "Classic Retro",
@@ -399,6 +415,7 @@
             "price": 220000000,
             "image": "Images/Continental_GT.jpg",
             "description": "Continental GT là chiếc café racer hiện đại, thiết kế đậm chất thể thao cổ điển và hiệu năng ấn tượng.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Royal Enfield",
             "Dòng xe": "Café Racer",
@@ -423,6 +440,7 @@
             "price": 185000000,
             "image": "Images/Himalayan.jpg",
             "description": "Royal Enfield Himalayan là mẫu adventure đa địa hình, thiết kế bền bỉ và phù hợp với mọi cung đường.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Royal Enfield",
             "Dòng xe": "Adventure Touring",
@@ -448,6 +466,7 @@
             "price": 899000000,
             "image": "Images/Harley Road King Special.jpg",
             "description": "Harley-Davidson Road King Special sở hữu kiểu dáng bagger cơ bắp, động cơ Milwaukee-Eight mạnh mẽ cùng thiết kế đậm chất Mỹ cổ điển.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Harley-Davidson",
             "Dòng xe": "Bagger / Touring",
@@ -471,6 +490,7 @@
             "price": 979000000,
             "image": "Images/Harley Street Glide.jpg",
             "description": "Street Glide là mẫu touring cổ điển kết hợp thiết kế yếm chắn gió Batwing mang tính biểu tượng và công nghệ hiện đại, lý tưởng cho hành trình xa.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Harley-Davidson",
             "Dòng xe": "Touring",
@@ -494,6 +514,7 @@
             "price": 999000000,
             "image": "Images/Harley Road Glide.jpg",
             "description": "Road Glide nổi bật với thiết kế yếm chắn gió cố định (shark nose fairing), mang lại sự ổn định ở tốc độ cao và trải nghiệm touring tuyệt vời.",
+            "status": "active",
             "specs": {
             "Hãng sản xuất": "Harley-Davidson",
             "Dòng xe": "Touring",
@@ -517,6 +538,7 @@
         "price": 2500000,
         "image": "Images/Nón bảo hiểm full face.jpg",
         "description": "Nón bảo hiểm Fullface cao cấp giúp bảo vệ toàn diện phần đầu, đạt chuẩn an toàn khi di chuyển tốc độ cao.",
+        "status": "active",
         "specs": {
             "Loại": "Fullface",
             "Chất liệu": "ABS cao cấp",
@@ -537,6 +559,7 @@
         "price": 790000,
         "image": "Images/găng tay bảo hộ.jpg",
         "description": "Găng tay da bảo hộ Motowolf dành cho biker chuyên nghiệp, thiết kế thời trang, chống trượt và bảo vệ khớp ngón.",
+        "status": "active",
         "specs": {
             "Loại": "Găng tay đi phượt",
             "Chất liệu": "Da bò và vải lưới",
@@ -558,6 +581,7 @@
         "price": 680000,
         "image": "Images/kính chắn gió moto.jpg",
         "description": "Kính chắn gió chuyên dụng cho xe Touring giúp chắn bụi, gió và tăng tính khí động học khi di chuyển tốc độ cao.",
+        "status": "active",
         "specs": {
             "Loại": "Kính chắn gió",
             "Thương hiệu": "Universal",
@@ -578,6 +602,7 @@
         "price": 1850000,
         "image": "Images/Áo giáp Scoyco JK37.jpg",
         "description": "Áo giáp Scoyco JK37 bảo vệ toàn diện với lớp lót chống mài mòn và các giáp bảo vệ vai, khuủu và lưng, thích hợp cho phượt dài ngày.",
+        "status": "active",
         "specs": {
             "Loại": "Áo giáp moto",
             "Thương hiệu": "Scoyco",
@@ -598,6 +623,7 @@
         "price": 350000,
         "image": "mages/gia-do-dien-thoai-motowolf-mh1-kep-ghi-dong-mau-do.jpg",
         "description": "Kẹp điện thoại chắc chắn gắn ghi đông, chống rung, xoay 360 độ, phù hợp mọi dòng xe máy.",
+        "status": "active",
         "specs": {
             "Loại": "Giá đỡ điện thoại",
             "Thương hiệu": "Motowolf",
@@ -618,6 +644,7 @@
         "price": 2150000,
         "image": "Images/thung-sau-xe-may-givi-b27n-1.jpg",
         "description": "Thùng xe Givi B32N dung tích 32L, lắp đặt phía sau xe, phù hợp đi phượt hoặc chở đồ tiện lợi.",
+        "status": "active",
         "specs": {
             "Loại": "Thùng xe sau",
             "Thương hiệu": "Givi",
@@ -638,6 +665,7 @@
         "price": 3800000,
         "image": "Images/ống xã.jpg",
         "description": "Ống xả Akrapovic Slip-On giúp cải thiện hiệu suất, âm thanh thể thao, lắp đặt dễ dàng cho nhiều dòng xe.",
+        "status": "active",
         "specs": {
             "Loại": "Ống xả độ",
             "Thương hiệu": "Akrapovic",
@@ -658,6 +686,7 @@
         "price": 320000,
         "image": "Images/khóa chống trộm.jpg",
         "description": "Khóa đĩa tích hợp còi báo động âm thanh lớn khi có tác động, bảo vệ xe máy khỏi trộm cắp hiệu quả.",
+        "status": "active",
         "specs": {
             "Loại": "Khóa đĩa",
             "Thương hiệu": "Fornix",

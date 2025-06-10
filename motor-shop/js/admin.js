@@ -780,14 +780,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Hàm load sản phẩm từ product.json
+async function loadProductsFromJSON() {
+    try {
+        const response = await fetch('data/product.json');
+        const productsData = await response.json();
+        localStorage.setItem('products', JSON.stringify(productsData));
+        loadProducts();
+    } catch (error) {
+        console.error('Lỗi khi tải sản phẩm từ product.json:', error);
+        showAlert('Không thể tải sản phẩm từ dữ liệu JSON.', 'danger');
+    }
+}
 
-// Hàm để hiển thị danh sách sản phẩm
+// Hàm load sản phẩm
 function loadProducts() {
     const productsTableBody = document.getElementById('productsTableBody');
     if (!productsTableBody) return;
 
     productsTableBody.innerHTML = '';
-    products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || [];
 
     if (products.length === 0) {
         productsTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có sản phẩm nào.</td></tr>';
@@ -803,11 +815,15 @@ function loadProducts() {
                      alt="${product.name}" 
                      class="img-thumbnail" 
                      style="width: 100px; height: 60px; object-fit: cover;">
-                ${product.name}
             </td>
-            <td>${product.category}</td>
-            <td>${product.price.toLocaleString('vi-VN')} VNĐ</td>
-            <td>${product.stock}</td>
+            <td>${product.name}</td>
+            <td>${product.loaiXe}</td>
+            <td>${product.price ? product.price.toLocaleString('vi-VN') : 'N/A'} VNĐ</td>
+            <td>
+                <span class="badge ${product.status === 'active' ? 'bg-success' : 'bg-danger'}">
+                    ${product.status === 'active' ? 'Còn hàng' : 'Hết hàng'}
+                </span>
+            </td>
             <td>
                 <button class="btn btn-sm btn-primary edit-product" data-id="${product.id}">
                     <i class="fas fa-edit"></i>
@@ -827,7 +843,7 @@ function loadProducts() {
 function saveProduct() {
     const productForm = document.getElementById('productForm');
     const formData = new FormData(productForm);
-    
+
     const product = {
         id: currentProductId || Date.now().toString(),
         name: formData.get('name'),
@@ -837,6 +853,8 @@ function saveProduct() {
         image: formData.get('image'),
         description: formData.get('description')
     };
+
+    const products = JSON.parse(localStorage.getItem('products')) || [];
 
     if (currentProductId) {
         // Cập nhật sản phẩm hiện có
@@ -854,6 +872,19 @@ function saveProduct() {
     resetProductForm();
     $('#productModal').modal('hide');
 }
+
+// Khởi tạo sản phẩm từ JSON khi tải trang
+document.addEventListener('DOMContentLoaded', function() {
+    loadProductsFromJSON();
+
+    const productForm = document.getElementById('productForm');
+    if (productForm) {
+        productForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveProduct();
+        });
+    }
+});
 
 // Hàm thêm sản phẩm vào storage
 function addProductToStorage(product) {
