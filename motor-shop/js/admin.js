@@ -1094,3 +1094,254 @@ function attachProductTableEvents() {
         });
     });
 }
+
+// Dữ liệu mẫu cho tab Khuyến mãi
+const samplePromotions = [
+    {
+        id: 1,
+        name: "Khuyến mãi Tết Nguyên Đán",
+        startDate: "2023-01-01",
+        endDate: "2023-01-31",
+        discount: 20
+    },
+    {
+        id: 2,
+        name: "Giảm giá mùa hè",
+        startDate: "2023-06-01",
+        endDate: "2023-06-30",
+        discount: 15
+    },
+    {
+        id: 3,
+        name: "Black Friday",
+        startDate: "2023-11-24",
+        endDate: "2023-11-24",
+        discount: 50
+    }
+];
+
+localStorage.setItem('promotions', JSON.stringify(samplePromotions));
+
+function loadPromotions() {
+    const promotionsTableBody = document.getElementById('promotionsTableBody');
+    if (!promotionsTableBody) return;
+
+    promotionsTableBody.innerHTML = '';
+    const promotions = JSON.parse(localStorage.getItem('promotions')) || [];
+
+    if (promotions.length === 0) {
+        promotionsTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có khuyến mãi nào.</td></tr>';
+        return;
+    }
+
+    promotions.forEach(promotion => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${promotion.id}</td>
+            <td>${promotion.name}</td>
+            <td>${promotion.startDate}</td>
+            <td>${promotion.endDate}</td>
+            <td>${promotion.discount}%</td>
+            <td class="text-end">
+                <button class="btn btn-sm btn-primary edit-promotion" data-id="${promotion.id}">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-danger delete-promotion" data-id="${promotion.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+        promotionsTableBody.appendChild(row);
+    });
+
+    attachPromotionTableEvents();
+}
+
+function attachPromotionTableEvents() {
+    document.querySelectorAll('.edit-promotion').forEach(button => {
+        button.addEventListener('click', function() {
+            const promotionId = this.dataset.id;
+            editPromotion(promotionId);
+        });
+    });
+
+    document.querySelectorAll('.delete-promotion').forEach(button => {
+        button.addEventListener('click', function() {
+            const promotionId = this.dataset.id;
+            deletePromotion(promotionId);
+        });
+    });
+}
+
+function editPromotion(promotionId) {
+    const promotions = JSON.parse(localStorage.getItem('promotions')) || [];
+    const promotion = promotions.find(p => p.id === parseInt(promotionId));
+    if (promotion) {
+        document.getElementById('promotionId').value = promotion.id;
+        document.getElementById('promotionName').value = promotion.name;
+        document.getElementById('promotionStartDate').value = promotion.startDate;
+        document.getElementById('promotionEndDate').value = promotion.endDate;
+        document.getElementById('promotionDiscount').value = promotion.discount;
+        document.getElementById('addPromotionModalLabel').textContent = 'Sửa khuyến mãi';
+        $('#addPromotionModal').modal('show');
+    }
+}
+
+function deletePromotion(promotionId) {
+    if (confirm('Bạn có chắc chắn muốn xóa khuyến mãi này?')) {
+        let promotions = JSON.parse(localStorage.getItem('promotions')) || [];
+        promotions = promotions.filter(p => p.id !== parseInt(promotionId));
+        localStorage.setItem('promotions', JSON.stringify(promotions));
+        loadPromotions();
+        alert('Xóa khuyến mãi thành công!');
+    }
+}
+
+function savePromotion() {
+    const promotionId = document.getElementById('promotionId').value;
+    const promotionName = document.getElementById('promotionName').value;
+    const promotionStartDate = document.getElementById('promotionStartDate').value;
+    const promotionEndDate = document.getElementById('promotionEndDate').value;
+    const promotionDiscount = document.getElementById('promotionDiscount').value;
+
+    const promotions = JSON.parse(localStorage.getItem('promotions')) || [];
+
+    if (promotionId) {
+        const index = promotions.findIndex(p => p.id === parseInt(promotionId));
+        if (index !== -1) {
+            promotions[index] = {
+                id: parseInt(promotionId),
+                name: promotionName,
+                startDate: promotionStartDate,
+                endDate: promotionEndDate,
+                discount: parseInt(promotionDiscount)
+            };
+        }
+    } else {
+        const newPromotion = {
+            id: Date.now(),
+            name: promotionName,
+            startDate: promotionStartDate,
+            endDate: promotionEndDate,
+            discount: parseInt(promotionDiscount)
+        };
+        promotions.push(newPromotion);
+    }
+
+    localStorage.setItem('promotions', JSON.stringify(promotions));
+    loadPromotions();
+    $('#addPromotionModal').modal('hide');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadPromotions();
+
+    document.getElementById('savePromotionBtn').addEventListener('click', savePromotion);
+});
+
+// Dữ liệu mẫu cho tab Khách hàng
+const sampleCustomers = [
+    {
+        id: 1,
+        name: "Nguyễn Văn A",
+        phone: "0901234567",
+        address: "123 Đường ABC, Quận 1, TP.HCM",
+        paymentStatus: "Đã thanh toán"
+    },
+    {
+        id: 2,
+        name: "Trần Thị B",
+        phone: "0912345678",
+        address: "456 Đường DEF, Quận 2, TP.HCM",
+        paymentStatus: "Chưa thanh toán"
+    },
+    {
+        id: 3,
+        name: "Lê Văn C",
+        phone: "0923456789",
+        address: "789 Đường GHI, Quận 3, TP.HCM",
+        paymentStatus: "Đã thanh toán"
+    }
+];
+
+localStorage.setItem('customers', JSON.stringify(sampleCustomers));
+
+function loadCustomers() {
+    const customersTableBody = document.getElementById('customersTableBody');
+    if (!customersTableBody) return;
+
+    customersTableBody.innerHTML = '';
+    const customers = JSON.parse(localStorage.getItem('customers')) || [];
+
+    if (customers.length === 0) {
+        customersTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có khách hàng nào.</td></tr>';
+        return;
+    }
+
+    customers.forEach(customer => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${customer.id}</td>
+            <td>${customer.name}</td>
+            <td>${customer.phone}</td>
+            <td>${customer.address}</td>
+            <td>
+                <span class="badge ${customer.paymentStatus === 'Đã thanh toán' ? 'bg-success' : 'bg-warning'}">
+                    ${customer.paymentStatus}
+                </span>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-primary view-customer" data-id="${customer.id}">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-danger delete-customer" data-id="${customer.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+        customersTableBody.appendChild(row);
+    });
+
+    attachCustomerTableEvents();
+}
+
+function attachCustomerTableEvents() {
+    document.querySelectorAll('.view-customer').forEach(button => {
+        button.addEventListener('click', function() {
+            const customerId = this.dataset.id;
+            viewCustomerDetails(customerId);
+        });
+    });
+
+    document.querySelectorAll('.delete-customer').forEach(button => {
+        button.addEventListener('click', function() {
+            const customerId = this.dataset.id;
+            deleteCustomer(customerId);
+        });
+    });
+}
+
+function viewCustomerDetails(customerId) {
+    const customers = JSON.parse(localStorage.getItem('customers')) || [];
+    const customer = customers.find(c => c.id === parseInt(customerId));
+    if (customer) {
+        document.getElementById('modalCustomerName').textContent = customer.name;
+        document.getElementById('modalCustomerPhone').textContent = customer.phone;
+        document.getElementById('modalCustomerAddress').textContent = customer.address;
+        $('#customerDetailsModal').modal('show');
+    }
+}
+
+function deleteCustomer(customerId) {
+    if (confirm('Bạn có chắc chắn muốn xóa khách hàng này?')) {
+        let customers = JSON.parse(localStorage.getItem('customers')) || [];
+        customers = customers.filter(c => c.id !== parseInt(customerId));
+        localStorage.setItem('customers', JSON.stringify(customers));
+        loadCustomers();
+        alert('Xóa khách hàng thành công!');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadCustomers();
+});

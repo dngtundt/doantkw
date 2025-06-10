@@ -240,4 +240,27 @@ body.dark-mode .modal-footer {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* CSS cho tab Khách hàng */
+#customersTableBody tr td {
+    vertical-align: middle;
+}
+#customersTableBody tr td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+#customerDetailsModal .modal-header {
+    background-color: #007bff;
+    color: white;
+}
+#customerDetailsModal .modal-footer .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+#customerDetailsModal .modal-footer .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
 

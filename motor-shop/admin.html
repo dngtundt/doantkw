@@ -131,11 +131,11 @@
                         <i class="fas fa-motorcycle"></i> Sản phẩm
                     </a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#customers-tab-pane" class="nav-link sidebar-link" id="customers-tab" data-bs-toggle="tab" data-bs-target="#customers-tab-pane" role="tab" aria-controls="customers-tab-pane" aria-selected="false">
                         <i class="fas fa-users"></i> Khách hàng
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="#promotions-tab-pane" class="nav-link sidebar-link" id="promotions-tab" data-bs-toggle="tab" data-bs-target="#promotions-tab-pane" role="tab" aria-controls="promotions-tab-pane" aria-selected="false">
                         <i class="fas fa-tags"></i> Khuyến mãi
@@ -452,10 +452,69 @@
                     </div>
                 </div>
 
-                <!-- Tab Khuyến mãi - Ví dụ -->
+                <!-- Tab Khuyến mãi -->
                 <div class="tab-pane fade" id="promotions-tab-pane" role="tabpanel" aria-labelledby="promotions-tab" tabindex="0">
                     <h2 class="mb-4">Quản lý Khuyến mãi</h2>
-                    <p>Nội dung quản lý khuyến mãi sẽ được hiển thị ở đây.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5>Danh sách khuyến mãi</h5>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPromotionModal">
+                            <i class="fas fa-plus"></i> Thêm khuyến mãi mới
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên khuyến mãi</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Ngày kết thúc</th>
+                                    <th>Giảm giá (%)</th>
+                                    <th class="text-end">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="promotionsTableBody">
+                                <!-- Dữ liệu khuyến mãi sẽ được thêm vào đây bằng JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Modal thêm/sửa khuyến mãi -->
+                    <div class="modal fade" id="addPromotionModal" tabindex="-1" aria-labelledby="addPromotionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addPromotionModalLabel">Thêm khuyến mãi mới</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="promotionForm">
+                                        <input type="hidden" id="promotionId">
+                                        <div class="mb-3">
+                                            <label for="promotionName" class="form-label">Tên khuyến mãi</label>
+                                            <input type="text" class="form-control" id="promotionName" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="promotionStartDate" class="form-label">Ngày bắt đầu</label>
+                                            <input type="date" class="form-control" id="promotionStartDate" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="promotionEndDate" class="form-label">Ngày kết thúc</label>
+                                            <input type="date" class="form-control" id="promotionEndDate" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="promotionDiscount" class="form-label">Giảm giá (%)</label>
+                                            <input type="number" class="form-control" id="promotionDiscount" min="0" max="100" required>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                    <button type="button" class="btn btn-primary" id="savePromotionBtn">Lưu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Tab Bài viết - Ví dụ -->
